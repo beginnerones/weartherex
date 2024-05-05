@@ -5,7 +5,7 @@ const router=express.Router(); //라우터로서 분리하여 사용하였기에
 let url="http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/"; //api 주소입니다.접근을 위해서 작성해놨습니다.
 let query=''; //매개변수들을 받을 부분입니다.
 
-router.get('/',(req,res)=>{ //기본경로로 접근시 큰 지역마다 
+router.get('/',(req,res)=>{ //기본경로로 접근시 시,도지역을 기준으로하여 미세먼지정보를 반환해 줍니다.
     url+="http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty";
     const location =req.query.location; //시도에 이름을 쿼리스트링으로 작성해주시면 됩니다.(서울,울산,대구,전역등)
     query='?'+encodeURIComponent('serviceKey')+'='+process.env.KEY;  //API호출을 위하여 필요한 매개변수들을 작성합니다.
